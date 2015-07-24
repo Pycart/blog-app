@@ -1,0 +1,39 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Django Blog</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+
+	<div id="wrapper">
+
+		<h1>Welcome to our Blog</h1>
+		<hr>
+
+		
+
+		<img id="loader" src="{% static 'img/ring.gif' %}">
+
+		<form id="post-form">
+			{% csrf_token %}
+			<label>Title</label>
+			<input type="text" name="title">
+			<label>Content</label>
+			<textarea name="post-content"></textarea>
+
+			<input type="submit" value="Create Post">
+
+		</form>
+
+		<button id="load-posts">Load Posts</button>
+
+		<div id="posts"></div>
+	</div>
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="{% static 'js/blog.js' %}"></script>
+</body>
+</html>
