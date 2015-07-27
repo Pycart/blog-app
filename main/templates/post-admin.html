@@ -1,0 +1,68 @@
+{%load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Post</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel=' stylesheet' type='text/css' href="{% static 'css/blog.css' %}">
+    <style type="text/css">
+        #post_form {
+        border-bottom:2px;
+        padding-bottom: 20px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class='container'>
+        <div class='row'>
+
+            <div id='title-stuff'>
+                <h1>This is my Blog</h1>
+                <h2>There are many like it but this one is mine</h2>
+                <br>
+            </div>
+        </div>
+    <div id='wrapper'>
+        <div class='row'>
+
+            <div>{{ message }}</div>
+
+            <form class='col-md-offset-1 col-md-10' enctype="multipart/form-data" id='post_form' action="{% url 'create_post' %}" method="POST">
+                {% csrf_token %}
+
+                <input type="hidden" name="author" value="1">
+
+              <div class="form-group">
+                <label for="title-box1"><span class='glyphicon glyphicon-pencil'></span> Post Title</label>
+                <input type="text" class="form-control title-box" id="title-box1" name='title' placeholder="Enter a Witty Title">
+                <p class="help-block">Type Something descriptive</p>
+              </div>
+
+              <div class="form-group">
+                <label for="content-box1"><span class='glyphicon glyphicon-book'></span> Post Content</label>
+                <textarea class="form-control" id="content-box1" name='text' placeholder="What's on your Mind?"></textarea>
+                <p class="help-block">Pour out your heart, tell us everything</p>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputFile">Featured Image</label>
+                <input type="file" name="featured_image" id="exampleInputFile">
+                <p class="help-block">File for the header of the post</p>
+              </div>
+
+              <button type="submit" class="btn btn-default"><span class='glyphicon glyphicon-plus'></span> Create Post</button>
+            </form>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src='{% static "js/blog.js" %}'></script>
+    <script src='{% static "bootstrap/js/bootstrap.js" %}'></script>
+</body>
+</html>
