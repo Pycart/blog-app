@@ -1,0 +1,22 @@
+{%load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Post</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel=' stylesheet' type='text/css' href="{% static 'css/blog.css' %}">
+
+</head>
+<body>
+    
+    {% include 'navbar.html' with admin=True %}
+
+    {% block content %}
+    {% endblock content %}
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src='{% static "js/blog.js" %}'></script>
+    <script src='{% static "bootstrap/js/bootstrap.js" %}'></script>
+</body>
+</html>
